@@ -8,6 +8,9 @@ import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
+// Component state is COMPLETELY DIFFERENT from application's state. Coincidentally, the have the same name,
+// but developers could have put it another name.
+
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <App />

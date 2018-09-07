@@ -47,7 +47,7 @@ function mapDispatchToProps(dispatch) {
   In other words, the component is PROMOTED to a container (smart component)
 
   `mapStateToProps` (or whatever name it has) is handed the state through the connect handler. Remember, the connect function is what ties react and redux together.
-  he connect function itself is what we call a 'higher-order-component', and it gets its knowledge of state by virtue of the Provider component in index.js....
+  The connect function itself is what we call a 'higher-order-component', and it gets its knowledge of state by virtue of the Provider component in index.js....
   an upcoming section will discuss more about higher order components, at which point this will likely start to make more sense.
 
 */
