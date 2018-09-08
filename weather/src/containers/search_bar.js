@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
-export default class SearchBar extends Component {
+ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { term: '' };
@@ -11,6 +14,7 @@ export default class SearchBar extends Component {
     // What we can also do, is wrap the callback inside the DOMElement with a fat-arrow function definition
     // Remember: the fat-arrow function definition PRESERVES the meaning of 'this', as a Java-like notation
     this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   // this 'event' object is a vanilla javascript/html thing, for DOMEvent handlers
@@ -22,6 +26,8 @@ export default class SearchBar extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
+    this.props.fetchWeather(this.state.term);
+    this.setState({ state: '' });
   }
 
   render() {
@@ -42,3 +48,9 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
