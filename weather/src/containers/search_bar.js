@@ -27,7 +27,7 @@ import { fetchWeather } from '../actions/index';
   onFormSubmit(event) {
     event.preventDefault();
     this.props.fetchWeather(this.state.term);
-    this.setState({ state: '' });
+    this.setState({ term: '' });
   }
 
   render() {
